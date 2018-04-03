@@ -1,4 +1,4 @@
- var cars = ["nissan gtr", "porsche 911", "nissan 370z", "porsche cayman gt4", "mercedes c63 amg"];
+ var cars = ["nissan gtr", "porsche 911", "ferarri 488", "porsche cayman", "mercedes amg", "bmw m3", "chevrolet corvette"];
 
  $("button").on("click", function() {
     console.log("working");
@@ -49,3 +49,6 @@
         }
       });
   });
+  // user input text
+  var searchTerm = $("#search-term").val().trim();
+  queryURL += "&q=" + searchTerm;
