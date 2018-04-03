@@ -2,11 +2,11 @@
 
  $("button").on("click", function() {
     console.log("working");
-    var person = $(this).attr("data-person");
+    var car = $(this).attr("data-person");
 
-    // Constructing a URL to search Giphy for the name of the person who said the quote
+    // Constructing a URL to search Giphy
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-      person + "&api_key=28KM0qQYRTi5pNeEdbXKzeY5NHkIlVTq";
+      car + "&api_key=28KM0qQYRTi5pNeEdbXKzeY5NHkIlVTq";
 
     // Performing our AJAX GET request
     $.ajax({
@@ -20,9 +20,8 @@
 
         // Looping over every result item
         for (var i = 0; i < results.length; i++) {
-
+          console.log("running")
           // Only taking action if the photo has an appropriate rating
-          if (results[i].rating !== "pg" && results[i].rating !== "pg") {
             // Creating a div with the class "item"
             var gifDiv = $("<div class='item'>");
 
@@ -45,10 +44,14 @@
 
             // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
             $("#gifs-appear-here").prepend(gifDiv);
-          }
+          
         }
       });
-  });
+  //});
   // user input text
-  var searchTerm = $("#search-term").val().trim();
-  queryURL += "&q=" + searchTerm;
+  $(".form-control").on("click", function (searchTerm) {
+  console.log("last function")
+  var searchTerm = $( this ).val().trim();
+  car.push(searchTerm[i]);
+  })
+});
